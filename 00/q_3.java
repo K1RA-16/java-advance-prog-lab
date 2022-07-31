@@ -22,11 +22,10 @@ class q_3 {
 
     private static void initialise(Scanner scn) {
         int turn = 0; // 1 for user's turn, 0 for computer's turn
-       
+
         System.out.println("Do you want to play first - Y OR N");
         char c = scn.next().charAt(0);
 
-        int turn = 0; // 1 for user's turn, 0 for computer's turn
         if (c == 'Y') {
             turn = 1;
         }
@@ -57,10 +56,9 @@ class q_3 {
         System.out.println(
                 "Computer's points: " + computerPoint);
     }
-    
 
     private static int computerStick(Scanner scn) {
-        int n = wicked(1,3,sticks);
+        int n = wicked(1, 3, sticks);
         System.out.println("sticks picked by computer - " + n);
         return n;
     }
@@ -74,17 +72,16 @@ class q_3 {
         }
         return n;
     }
-    
-    public static int wicked(int low, int high, int N){
 
-        if(N>=low && N<=high)
+    public static int wicked(int min, int max, int N) {
+        if (N >= min && N <= max)
             return N;
-        
-        if(N%(high+1)==0)
-            return range(low,high);
-        else {//N not multiple of high+1}
-            for(int i=low; i<=high; i++){
-                if((N-i)%(high+1)==0)
+
+        if (N % (max + 1) == 0)
+            return getRandomNumberUsingInts(min, max);
+        else {// N not multiple of high+1}
+            for (int i = min; i <= max; i++) {
+                if ((N - i) % (max + 1) == 0)
                     return i;
             }
         }
