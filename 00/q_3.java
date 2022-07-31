@@ -9,7 +9,7 @@ class q_3 {
         Scanner scn = new Scanner(System.in);
         char c = 'N';
         do {
-            sticks = 15;
+            sticks = getRandomNumberUsingInts(39, 81);
             if (sticks == 0) {
                 return;
             }
@@ -22,17 +22,23 @@ class q_3 {
 
     private static void initialise(Scanner scn) {
         int turn = 0; // 1 for user's turn, 0 for computer's turn
-        int n = 0;
+       
+        System.out.println("Do you want to play first - Y OR N");
+        char c = scn.next().charAt(0);
+
+        int turn = 0; // 1 for user's turn, 0 for computer's turn
+        if (c == 'Y') {
+            turn = 1;
+        }
         while (sticks != 0) {
             // System.out.println("Remaining Sticks: " + sticks);//displays the remaining
             // sticks / use for debugging
-
+            int n = 0;
             if (turn == 1) {
-                n = 0;
                 n = userStick(scn);
                 turn = 0;
             } else {
-                n = computerStick(scn, n);
+                n = computerStick(scn);
                 turn = 1;
             }
             sticks -= n;
@@ -51,12 +57,10 @@ class q_3 {
         System.out.println(
                 "Computer's points: " + computerPoint);
     }
+    
 
-    private static int computerStick(Scanner scn, int n2) {
-        int n = 2;
-        if (n2 != 0) {
-            n = 4 - n2;
-        }
+    private static int computerStick(Scanner scn) {
+        int n = wicked(1,3,sticks);
         System.out.println("sticks picked by computer - " + n);
         return n;
     }
@@ -69,6 +73,22 @@ class q_3 {
             return userStick(scn);
         }
         return n;
+    }
+    
+    public static int wicked(int low, int high, int N){
+
+        if(N>=low && N<=high)
+            return N;
+        
+        if(N%(high+1)==0)
+            return range(low,high);
+        else {//N not multiple of high+1}
+            for(int i=low; i<=high; i++){
+                if((N-i)%(high+1)==0)
+                    return i;
+            }
+        }
+        return 0;
     }
 
     public static int getRandomNumberUsingInts(int min, int max) {
