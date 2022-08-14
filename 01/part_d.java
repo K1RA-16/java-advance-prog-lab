@@ -50,7 +50,7 @@ class part_d
         }
         String fileContents = buffer.toString();
         sc.close();
-        BufferedWriter writer = new BufferedWriter(new FileWriter("example.c"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("01d_test1_output.c"));
         writer.write(fileContents);
         writer.flush();
     }
