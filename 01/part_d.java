@@ -20,7 +20,7 @@ class part_d
                 sc.nextLine();
             }
             if(line.contains("//")) continue;
-            buffer.append(line+System.lineSeparator());
+            buffer.append(line+"\n");
         }
     }
     public static void main(String[] args) throws Exception
@@ -46,7 +46,7 @@ class part_d
                 }      
             }
             if(line.contains("//")) continue;
-            buffer.append(line+System.lineSeparator());
+            buffer.append(line+"\n");
         }
         String fileContents = buffer.toString();
         sc.close();
