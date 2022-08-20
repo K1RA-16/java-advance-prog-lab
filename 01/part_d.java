@@ -1,3 +1,4 @@
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,7 +11,7 @@ class part_d
             Scanner sc = new Scanner(new File(path));
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
-                if(line.contains(".h")) {
+                if(line.contains("include")) {
                     addStringFromExternal(buffer,line);
                     continue;
                 }
@@ -44,11 +45,11 @@ class part_d
     }
     public static void main(String[] args) throws Exception
     {   
-       try{ String path = "01d_test1.c";
+        try{ String path = "main.c";
         StringBuffer buffer = new StringBuffer();
         whileLoop(buffer,path);
         String fileContents = buffer.toString();
-        BufferedWriter writer = new BufferedWriter(new FileWriter("01d_test1_output.c"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("part_d_output.c"));
         writer.write(fileContents);
         writer.flush();}catch(Exception e){
             System.out.println(e);

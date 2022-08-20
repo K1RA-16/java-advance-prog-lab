@@ -21,9 +21,17 @@ public class part_a {
         }
     }
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
+        String path = "0";
+        Scanner sc = new Scanner(new File(path));
+         
+        
         int n; // number of elements
-        n = s.nextInt();
+        while (sc.hasNextLine()) {
+            n = s.nextInt(); = sc.nextLine();
+            if(line.contains("include")) {
+                addStringFromExternal(buffer,line);
+                continue;
+            }
         int[] arr;
         arr = new int[n];
         for (int i = 0; i < n; i++) {

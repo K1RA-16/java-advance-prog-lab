@@ -1,0 +1,13 @@
+ void f(int x, int y) {
+  return x+y;
+ }
+
+void f(int, int);
+
+int main (){
+
+ int j;
+ j = 2*10 -2*2*10;
+ printf(j);
+ return 0;
+}
