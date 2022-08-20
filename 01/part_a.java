@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 public class part_a {
@@ -20,25 +22,26 @@ public class part_a {
         
         }
     }
-    public static void main(String[] args) {
-        String path = "0";
+    public static void main(String[] args) throws FileNotFoundException {
+        String path = "01a_test1.inp";
         Scanner sc = new Scanner(new File(path));
-         
-        
-        int n; // number of elements
-        while (sc.hasNextLine()) {
-            n = s.nextInt(); = sc.nextLine();
-            if(line.contains("include")) {
-                addStringFromExternal(buffer,line);
-                continue;
-            }
+        int n = 0; // number of elements
+        if (sc.hasNextLine()) {
+            n = sc.nextInt();
+        }
         int[] arr;
         arr = new int[n];
         for (int i = 0; i < n; i++) {
-            arr[i] = s.nextInt();
+            if(sc.hasNextInt()) {
+                arr[i] = sc.nextInt();
+            }
+            else{
+                break;
+            }
+            
         }
         int k;
-        k = s.nextInt();
+        k = sc.nextInt();
         int a = find(arr,k,0,n-1,0);
         System.out.println(a);
     }
